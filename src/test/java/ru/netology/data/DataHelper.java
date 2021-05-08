@@ -60,8 +60,6 @@ public class DataHelper {
         }
         catch (SQLException exception){
             exception.printStackTrace();
-
         }
     }
-
 }

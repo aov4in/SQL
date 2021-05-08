@@ -1,25 +1,23 @@
 package ru.netology.test;
 
-
 import com.github.javafaker.Faker;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.page.LoginPage;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.open;
 
 
 public class LoginPageTest {
 
-
+    @AfterAll
+    void cleanBase() throws SQLException{
+        DataHelper.cleanDataBase();
+    }
 
     @Test
     void shouldAuthWithSmsCode() throws SQLException {
@@ -54,5 +52,4 @@ public class LoginPageTest {
         loginPage.validLogin(authInfo);
         loginPage.searchErrorMessage();
     }
-
 }
