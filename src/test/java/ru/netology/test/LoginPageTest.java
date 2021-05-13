@@ -1,26 +1,22 @@
 package ru.netology.test;
 
-import com.github.javafaker.Faker;
 import lombok.val;
-import org.apache.commons.dbutils.QueryRunner;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.page.LoginPage;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import static com.codeborne.selenide.Selenide.open;
 
 
 public class LoginPageTest {
 
     @AfterAll
-    void cleanBase() throws SQLException{
+    static void cleanBase() {
         DataHelper.cleanDataBase();
     }
 
     @Test
-    void shouldAuthWithSmsCode() throws SQLException {
+    void shouldAuthWithSmsCode()  {
         val loginPage = open("http://localhost:9999", LoginPage.class);
         val authInfo = DataHelper.getAuthInfo();
         val verificationPage = loginPage.validLogin(authInfo);
@@ -38,7 +34,7 @@ public class LoginPageTest {
     }
 
     @Test
-    void shouldBlockAuth() throws SQLException {
+    void shouldBlockAuth() {
         val loginPage = open("http://localhost:9999", LoginPage.class);
         val authInfo = DataHelper.getAuthErrorNotification();
         loginPage.validLogin(authInfo);
