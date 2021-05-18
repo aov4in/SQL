@@ -9,7 +9,6 @@
 
 ### ВНИМАНИЕ!!! Для повторного запуска тестов необходимо перезапустить SUT:
 ## Для перезапуска SUT необходимо выполнить следующие действия:
-1. Остановить работу Docker Container через терминал с помощью команды `docker-compose down`
-2. Заново запускаем Docker Container: в терминале необходимо выполнить команду `docker-compose up -d`
-3. Запускаем SUT через терминал с помощью команды `java -jar ./artifacts/app-deadline.jar -P:jdbc.url=jdbc:mysql://0.0.0.0:3306/app -P:jdbc.user=vasya -P:jdbc.password=qwerty123`
-4. Запускаем тесты в терминале с помощью команды `gradlew clean test`
+1. Для остановки SUT, в терминале где уже запущен SUT, нажимаем Ctrl+C. 
+1. Запускаем SUT через терминал с помощью команды `java -jar ./artifacts/app-deadline.jar -P:jdbc.url=jdbc:mysql://0.0.0.0:3306/app -P:jdbc.user=vasya -P:jdbc.password=qwerty123`
+2. Запускаем тесты в терминале с помощью команды `gradlew clean test`
